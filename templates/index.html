@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Content Creator</title>
+    <style>
+         body {
+            background: linear-gradient(#F8F8F8, #D4D4D4);
+            text-align: center;
+            font-family: roboto, Verdana, sans-serif;
+            color: #fff;
+        }
+        /* Style for the form container */
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #1b1b32cc;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding:2rem;
+    text-align: initial;
+}
+/* Style for the form header */
+h1 {
+    margin-top: 3rem;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom:2rem;
+    font-weight: 700;
+}
+/* Style for the form labels */
+label {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+/* Style for the form inputs */
+input[type="text"], input[type="radio"] {
+    padding: 15px 5px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    width: 100%;
+}
+/* Style for the form buttons */
+button[type="submit"] {
+  background-color: #4CAF50;
+  font-family: roboto;
+  border-radius: 2.5px;
+  color: #FFFFFF;
+  padding: 12px 4px;
+  border: none;
+  width: 40%;
+  margin: 0 auto;
+  font-size: medium;
+  transition: 0.3s;
+  cursor: pointer;
+}
+/* Style for the radio button labels */
+input[type="radio"] + label {
+  margin-right: 10px;
+}
+/* Style for the radio button labels with bold font */
+input [type="radio"] [name = "geo"] + label,
+input [type="radio"] [name="tone"] + label,
+input [type="radio"] [name="style"] + label,
+input [type="radio"] [name="intent"] + label
+  /* font-weight: bold; *
+  /* color:black; */
+/* Style for the selected radio button */
+input[type="radio"]:checked + label {
+  text-decoration: underline;
+}
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+form p {
+    margin: 10px 10px;
+}
+button[type="submit"]:hover {
+    background-color: #FFFFFF;
+    font-family: roboto;
+    border-radius: 2.5px;
+    color: #4CAF50;
+    transition: 0.2s;
+}
+@media screen and (max-width: 760px) {
+    form {
+    width: 100%;
+}
+}
+    </style>
+    </head>
+    <body>
+        <form action="/" method="post">
+                 <h1><center>CONTENT CREATOR</center></h1>
+                 <label for="mainkw"> <b>Main Keyword</b>: </label>
+                 <input type="text" id="mainkw" name="mainkw" ><br><br>
+                 <label for="additionalkw"><b>Additional Keyword</b>:</label>
+                 <input type="text" id="additionalkw" name="additionalkw"><br><br>
+                 <label for="language"><b>Language</b>:</label>
+                 <input type="text" id="language" name="language"><br><br>
+                 <label for="geo"><b>GEO</b>:</label>
+                 <p><input type="radio" name="geo" value="Canadian">Canada/Canadian/Canadians</p>
+                 <p><input type="radio" name="geo" value="Swedish">Sweden/Swedish/Swedes</p>
+                <label for="tone"><b>Tone of Voice</b>:</label>
+                  <p><input type="radio" name="tone" value="Conversational">Conversational</p>
+                  <p><input type="radio" name="tone" value="Persuasive">Persuasive</p>
+                  <p> <input type="radio" name="tone" value="Informational">Informational</p>
+                  <p> <input type="radio" name="tone" value="Professional">Professional</p>
+                 <label for="style"><b>Writing Style</b>:</label>
+                 <p> <input type="radio" name="style" value="Engaging">Engaging</p>
+                 <p> <input type="radio" name="style" value="Neutral">Neutral</p>
+                 <p> <input type="radio" name="style" value="Casual">Casual</p>
+                 <label for="intent"><b>Searching Intent</b>:</label>
+                 <p><input type="radio" name="intent" value="Informational">Informational</p>
+                 <p> <input type="radio" name="intent" value="Navigational">Navigational</p>
+                 <p> <input type="radio" name="intent" value="Transactional">Transactional</p>
+                 <p> <input type="radio" name="intent" value="Commercial">Commercial</p>
+                 <br><br>
+                 <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

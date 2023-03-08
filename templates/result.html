@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <<center>
+        <h1>{{ mainkw }}</h1>
+        <img src="{image_url}" alt="Article Image">
+    </center>
+    
+    {% for i in message %}
+    <p>
+        {{i|safe}}
+    </p>
+    {% endfor %}
+
+    
+    <center>
+        <h2>Sub section</h2>
+    </center>
+    <p>
+        {{ message3|safe }}
+    </p>
+    <center>
+        <h2>Top 5 competitors </h2>
+    </center>
+    <ol>
+        {% for keys, value in message5.items() %}
+        <li>
+            {{keys}}
+        </li>
+        {{value}}
+        {% endfor %}
+    </ol>
+    <center>
+        <h2>FAQ section</h2>
+    </center>
+    {{ message2|safe }}
+</body>
+</html>
