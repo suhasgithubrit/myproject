@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from difflib import SequenceMatcher
 
-
 app = Flask(__name__)
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -24,20 +24,19 @@ def index():
         #----------------- main section promt ----------------------
         main_prompt = (f"<p>Write an {tone} article with a {style} tone on the topic '{mainkw}' in {language}"
                   f"based up on the {geo} market"
-                  f"providing a analysis that includes {additionalkw}</p>"
-                   f"<img src='image_url'>")
+                  f"providing a analysis that includes {additionalkw}</p>")
         model = "text-davinci-003"
         main_completions = openai.Completion.create(
             engine=model,
             prompt=main_prompt,
             max_tokens=1000,
-            n=3,
+            n=10,
             stop=None,
             temperature=0.5,
         )
         
         message=list()
-        for i in range(3):
+        for i in range(2):
             message.append(main_completions.choices[i].text)
 
         #----------------- Heading section promt ----------------------
@@ -150,7 +149,7 @@ def index():
                         message3 +='<p style="white-space: pre-wrap">{}</p>'.format(sub_message)
                         count=count+1
                 
-            if count > 7 :
+            if count > 6 :
                 break
                 
 
@@ -197,8 +196,8 @@ def index():
                 print(' ')
         keys=list(competitors)
         message5=competitors
-        return render_template("result.html", mainkw=mainkw, additionalkw=additionalkw,message=message,message1=message1,message2=message2,message3=message3,message5=message5)
+        return render_template("result.html", mainkw=mainkw, additionalkw=additionalkw,headings_array=headings_array,message=message,message1=message1,message2=message2,message3=message3,message5=message5)
     return render_template("index.html")
 
-if __name__ == '__main__':
-     app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
